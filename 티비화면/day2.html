@@ -1,0 +1,287 @@
+<!doctype html>
+<!-- Day 2 수업용 오프라인 슬라이드 — AI와 대화하는 기술(모호 vs 구체 프롬프트) + 숫자 맞추기 게임 (영어 투영용, 외부 리소스 없음) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 2 — Talking to AI Like a Pro · Vibe Coding Camp</title>
+<style>
+  :root { --accent:#059669; --accent-soft:#d1fae5; --ink:#1e293b; --muted:#64748b; --bg:#ffffff; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; }
+  body { font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Lao",sans-serif;
+         background:var(--bg); color:var(--ink); overflow:hidden; cursor:pointer; }
+  .slide { position:absolute; inset:0; display:none; flex-direction:column;
+           justify-content:center; align-items:center; gap:2.4vh;
+           padding:6vh 8vw; text-align:center; }
+  .slide.active { display:flex; }
+  .kicker { text-transform:uppercase; letter-spacing:.18em; font-weight:700;
+            color:var(--accent); font-size:clamp(.8rem,1.6vw,1.1rem); }
+  h1 { font-size:clamp(2.4rem,6vw,4.2rem); line-height:1.15; }
+  h2 { font-size:clamp(1.9rem,4.6vw,3.1rem); line-height:1.2; }
+  p, li { font-size:clamp(1.15rem,2.6vw,1.85rem); line-height:1.55; }
+  ul, ol { text-align:left; max-width:70vw; }
+  li { margin:.7vh 0; }
+  .note { color:var(--muted); font-size:clamp(1rem,2vw,1.4rem); }
+  .big { font-size:clamp(1.6rem,3.6vw,2.6rem); font-weight:800; }
+  .emoji { font-size:clamp(4rem,11vw,7.5rem); line-height:1; }
+  .title-slide { background:var(--accent); color:#fff; }
+  .title-slide .kicker { color:var(--accent-soft); }
+  .title-slide .note { color:var(--accent-soft); }
+  .prompt-box { background:#0f172a; color:#86efac; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+                font-size:clamp(1.05rem,2.2vw,1.6rem); text-align:left; white-space:pre-wrap;
+                padding:2.6vh 2.4vw; border-radius:18px; max-width:78vw; line-height:1.5; }
+  .prompt-box .c { color:#7dd3fc; }
+  /* Anatomy 슬라이드용 — 프롬프트를 무엇/규칙/모양으로 색 구분 */
+  .prompt-box .p-what { color:#7dd3fc; }
+  .prompt-box .p-rule { color:#fde047; }
+  .prompt-box .p-look { color:#f0abfc; }
+  .k-what { color:#0369a1; font-weight:800; }
+  .k-rule { color:#a16207; font-weight:800; }
+  .k-look { color:#a21caf; font-weight:800; }
+  .cols { display:flex; gap:3vw; width:min(84vw,1200px); text-align:left; }
+  .col { flex:1; background:#f8fafc; border:2px solid #e2e8f0; border-radius:20px; padding:3.2vh 1.8vw; }
+  .col h3 { font-size:clamp(1.3rem,2.8vw,2rem); margin-bottom:1.2vh; }
+  .col li { font-size:clamp(1rem,2.1vw,1.5rem); }
+  .loop { display:flex; align-items:center; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .pill { background:var(--accent-soft); border:3px solid var(--accent); color:var(--accent);
+          font-weight:800; font-size:clamp(1.2rem,2.8vw,2rem);
+          padding:1.4vh 2.2vw; border-radius:999px; }
+  .loop .arrow { font-size:clamp(1.4rem,3vw,2.2rem); color:var(--muted); font-weight:700; }
+  .loop-caption { display:flex; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .loop-caption span { color:var(--muted); font-size:clamp(.9rem,1.8vw,1.25rem); width:14vw; min-width:130px; }
+  .rule-box { background:#fff7ed; border:3px solid #fb923c; border-radius:20px;
+              padding:2.6vh 3vw; font-size:clamp(1.3rem,3vw,2.1rem); font-weight:700; }
+  kbd { background:#e2e8f0; border-radius:8px; padding:.15em .5em; font-family:inherit;
+        font-size:.85em; border-bottom:3px solid #94a3b8; }
+  .footer { position:fixed; bottom:14px; right:20px; color:var(--muted);
+            font-size:.95rem; z-index:5; }
+  .daytag { position:fixed; bottom:14px; left:20px; color:var(--muted); font-size:.95rem; z-index:5; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide title-slide active">
+  <p class="kicker">Vibe Coding Camp · with opencode</p>
+  <h1>Day 2<br>Talking to AI Like a Pro</h1>
+  <p class="emoji">🗣️</p>
+  <p class="big">"Same AI. Better words. Better apps."</p>
+  <p class="note">Today we also build a GAME 🎮</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <p class="kicker">Warm-up quiz — hands up!</p>
+  <p class="emoji">🙋</p>
+  <ol>
+    <li>The 4 magic words of the loop?</li>
+    <li>AI can be wrong. Who checks?</li>
+    <li>What did YOU build yesterday?</li>
+  </ol>
+  <p class="note">(shout the answers together!)</p>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <p class="kicker">Today</p>
+  <h2>Better words → better apps</h2>
+  <ol>
+    <li><b>Experiment</b> — vague vs specific: watch what happens 🧪</li>
+    <li><b>Learn</b> — 2 Golden Rules + 3 safety tools 🛟</li>
+    <li><b>Build</b> — a number guessing GAME 🎮</li>
+  </ol>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <p class="kicker">Experiment</p>
+  <h2>Let's ask the AI for a game.</h2>
+  <div class="prompt-box">Make a game.</div>
+  <p class="big">What will happen? 🤔</p>
+  <p class="note">Watch the live demo — later YOU will try the same.</p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <p class="kicker">Why?</p>
+  <p class="emoji">🎲</p>
+  <div class="rule-box">Vague in → Random out</div>
+  <p class="big">The AI cannot read your mind.<br>It can only read your words.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <p class="kicker">Golden Rule 1</p>
+  <h2>Be specific</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>❌ Vague</h3>
+      <ul>
+        <li>"Make a game."</li>
+        <li>"Make it nice."</li>
+        <li>AI has to guess → random result</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>✅ Specific</h3>
+      <ul>
+        <li><b>What:</b> a number guessing game</li>
+        <li><b>How it works:</b> 1 to 100 · 7 tries · "higher / lower"</li>
+        <li><b>How it looks:</b> colorful, big buttons</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Say <b>what</b> + <b>how it looks</b> + <b>how it works</b>.</p>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <p class="kicker">Anatomy of a good prompt</p>
+  <h2>3 parts: <span class="k-what">WHAT</span> + <span class="k-rule">RULES</span> + <span class="k-look">LOOKS</span></h2>
+  <div class="prompt-box"><span class="p-what">Create index.html — a number guessing game.</span>
+<span class="p-rule">The computer picks a secret number from 1 to 100.
+I type a guess. The game tells me "higher" or "lower".
+I have 7 tries. Show a win or lose message at the end.</span>
+<span class="p-look">Make it colorful with big buttons.</span></div>
+  <p class="note"><span class="k-what">WHAT</span> to build · <span class="k-rule">RULES</span> of the game · how it <span class="k-look">LOOKS</span></p>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <p class="kicker">Golden Rule 2</p>
+  <h2>One thing at a time</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>❌ Everything at once</h3>
+      <ul>
+        <li>"Add a Play Again button and emoji and a win counter and change all the colors and…"</li>
+        <li>Too much → AI gets confused, YOU cannot check</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>✅ One by one</h3>
+      <ul>
+        <li>"Add a Play Again button." → CHECK</li>
+        <li>"Add emoji 🎉 when I win." → CHECK</li>
+        <li>Small asks, many rounds</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <p class="kicker">Don't panic</p>
+  <h2>3 safety tools 🛟</h2>
+  <ul>
+    <li><kbd>Esc</kbd> — <b>STOP.</b> AI going the wrong way? Stop it now.</li>
+    <li><code>/undo</code> — <b>Time machine.</b> Undo the last change. Repeat if needed.</li>
+    <li><kbd>Ctrl</kbd>+<kbd>X</kbd>, then <kbd>N</kbd> — <b>Fresh start.</b> New session, clean conversation.</li>
+  </ul>
+  <p class="note">You can always go back. Nothing is broken forever.</p>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <p class="kicker">Cheat sheet</p>
+  <h2>Your English helper 📄</h2>
+  <ol>
+    <li>🚀 Start something new</li>
+    <li>🎨 Change how it looks</li>
+    <li>➕ Add ONE feature</li>
+    <li>🔧 Fix a problem</li>
+    <li>😵 When you are stuck</li>
+  </ol>
+  <p class="big">Keep it next to you — every day.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <p class="kicker">Your Mission</p>
+  <p class="emoji">🎯</p>
+  <h2>Number Guessing Game</h2>
+  <ol>
+    <li><b>Step 1</b> — folder <b>number-game</b> → opencode → send <b>"Make a game."</b> Write down what happens</li>
+    <li><b>Step 2</b> — new session (<kbd>Ctrl</kbd>+<kbd>X</kbd>, then <kbd>N</kbd>) → send the SPECIFIC prompt (worksheet)</li>
+    <li><b>Step 3</b> — FIX rounds: one change at a time</li>
+  </ol>
+  <p class="note">Step 1 will go wrong. That is the plan. 😉</p>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <p class="kicker">Step 3 — FIX rounds</p>
+  <h2>FIX menu 🔧</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>Pick one at a time — do 3+</h3>
+      <ul>
+        <li>⏳ Show tries left</li>
+        <li>🎨 Colors + emoji</li>
+        <li>🔁 "Play Again" button</li>
+        <li>🏆 Count my wins</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>💪 Stretch</h3>
+      <ul>
+        <li>💾 Save my best score — still there after closing the browser</li>
+        <li>🎚️ Difficulty: Easy (1–50) / Hard (1–500)</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">After every FIX: <b>CHECK</b> in the browser.</p>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <p class="kicker">Compare</p>
+  <p class="emoji">🤔</p>
+  <h2>Step 1 and Step 2 —<br>same AI, same day.</h2>
+  <p class="big">What was different?</p>
+  <p class="note">(tell us what you saw — 2 or 3 students)</p>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <p class="kicker">Recap — say it with me!</p>
+  <div class="rule-box">1. Be specific!</div>
+  <div class="rule-box">2. One thing at a time!</div>
+  <div class="rule-box">3. You decide, AI builds!</div>
+  <p class="note">The prompt is the program. ✨</p>
+</section>
+
+<!-- 15 -->
+<section class="slide title-slide">
+  <p class="kicker">Tomorrow</p>
+  <p class="emoji">💡</p>
+  <h1>YOUR idea<br>starts tomorrow</h1>
+  <p class="big">Tonight, think:<br>what app do YOU want to make?</p>
+  <p class="note">Write ONE idea on your exit ticket before you leave!</p>
+</section>
+
+<div class="daytag">Vibe Coding Camp — Day 2</div>
+<div class="footer"><span id="counter">1 / 15</span> · <kbd>←</kbd><kbd>→</kbd> or click</div>
+
+<script>
+  // 슬라이드 내비게이션: ←/→/Space/클릭, 해시(#n)로 위치 유지
+  var slides = document.querySelectorAll('.slide');
+  var idx = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), slides.length - 1);
+  function show(i) {
+    idx = Math.min(Math.max(i, 0), slides.length - 1);
+    slides.forEach(function (s, n) { s.classList.toggle('active', n === idx); });
+    document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
+    history.replaceState(null, '', '#' + (idx + 1));
+  }
+  document.addEventListener('keydown', function (e) {
+    if (['ArrowRight', ' ', 'PageDown', 'Enter'].indexOf(e.key) > -1) { e.preventDefault(); show(idx + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) > -1) { e.preventDefault(); show(idx - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  document.addEventListener('click', function () { show(idx + 1); });
+  show(idx);
+</script>
+</body>
+</html>

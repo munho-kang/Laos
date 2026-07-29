@@ -1,0 +1,238 @@
+<!doctype html>
+<!-- Day 4 수업용 오프라인 슬라이드 — 집중 개발: 스프린트 리듬 + Save Point + 4 Escape Moves (영어 투영용, 외부 리소스 없음) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 4 — Build Day · Vibe Coding Camp</title>
+<style>
+  :root { --accent:#7c3aed; --accent-soft:#ede9fe; --ink:#1e293b; --muted:#64748b; --bg:#ffffff; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; }
+  body { font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Lao",sans-serif;
+         background:var(--bg); color:var(--ink); overflow:hidden; cursor:pointer; }
+  .slide { position:absolute; inset:0; display:none; flex-direction:column;
+           justify-content:center; align-items:center; gap:2.4vh;
+           padding:6vh 8vw; text-align:center; }
+  .slide.active { display:flex; }
+  .kicker { text-transform:uppercase; letter-spacing:.18em; font-weight:700;
+            color:var(--accent); font-size:clamp(.8rem,1.6vw,1.1rem); }
+  h1 { font-size:clamp(2.4rem,6vw,4.2rem); line-height:1.15; }
+  h2 { font-size:clamp(1.9rem,4.6vw,3.1rem); line-height:1.2; }
+  p, li { font-size:clamp(1.15rem,2.6vw,1.85rem); line-height:1.55; }
+  ul, ol { text-align:left; max-width:70vw; }
+  li { margin:.7vh 0; }
+  .note { color:var(--muted); font-size:clamp(1rem,2vw,1.4rem); }
+  .big { font-size:clamp(1.6rem,3.6vw,2.6rem); font-weight:800; }
+  .emoji { font-size:clamp(4rem,11vw,7.5rem); line-height:1; }
+  .title-slide { background:var(--accent); color:#fff; }
+  .title-slide .kicker { color:var(--accent-soft); }
+  .title-slide .note { color:var(--accent-soft); }
+  .prompt-box { background:#0f172a; color:#86efac; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+                font-size:clamp(1.05rem,2.2vw,1.6rem); text-align:left; white-space:pre-wrap;
+                padding:2.6vh 2.4vw; border-radius:18px; max-width:78vw; line-height:1.5; }
+  .prompt-box .c { color:#7dd3fc; }
+  .cols { display:flex; gap:3vw; width:min(84vw,1200px); text-align:left; }
+  .col { flex:1; background:#f8fafc; border:2px solid #e2e8f0; border-radius:20px; padding:3.2vh 1.8vw; }
+  .col h3 { font-size:clamp(1.3rem,2.8vw,2rem); margin-bottom:1.2vh; }
+  .col li { font-size:clamp(1rem,2.1vw,1.5rem); }
+  .loop { display:flex; align-items:center; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .pill { background:var(--accent-soft); border:3px solid var(--accent); color:var(--accent);
+          font-weight:800; font-size:clamp(1.2rem,2.8vw,2rem);
+          padding:1.4vh 2.2vw; border-radius:999px; }
+  .loop .arrow { font-size:clamp(1.4rem,3vw,2.2rem); color:var(--muted); font-weight:700; }
+  .loop-caption { display:flex; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .loop-caption span { color:var(--muted); font-size:clamp(.9rem,1.8vw,1.25rem); width:14vw; min-width:130px; }
+  .rule-box { background:#fff7ed; border:3px solid #fb923c; border-radius:20px;
+              padding:2.6vh 3vw; font-size:clamp(1.3rem,3vw,2.1rem); font-weight:700; }
+  kbd { background:#e2e8f0; border-radius:8px; padding:.15em .5em; font-family:inherit;
+        font-size:.85em; border-bottom:3px solid #94a3b8; }
+  .footer { position:fixed; bottom:14px; right:20px; color:var(--muted);
+            font-size:.95rem; z-index:5; }
+  .daytag { position:fixed; bottom:14px; left:20px; color:var(--muted); font-size:.95rem; z-index:5; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide title-slide active">
+  <p class="kicker">Vibe Coding Camp · with opencode</p>
+  <h1>Day 4<br>Build Day</h1>
+  <p class="emoji">🔨</p>
+  <p class="big">"Today you build. Tomorrow you present."</p>
+  <p class="note">3 sprints · 3 MUST features · Save Points · 4 Escape Moves</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <p class="kicker">One goal</p>
+  <p class="emoji">🎯</p>
+  <h2>All 3 MUST features<br>working — today.</h2>
+  <p class="big">Presentation: tomorrow. ⏳ 1 day left.</p>
+  <p class="note">Yesterday: plan + v0. Today: build. Tomorrow: Ship It!</p>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <p class="kicker">The rhythm — all day today</p>
+  <div class="loop">
+    <span class="pill">ONE feature</span><span class="arrow">→</span>
+    <span class="pill">TELL</span><span class="arrow">→</span>
+    <span class="pill">CHECK</span><span class="arrow">→</span>
+    <span class="pill">SAVE</span><span class="arrow">→</span>
+    <span class="pill">next</span>
+  </div>
+  <div class="loop-caption">
+    <span>pick ONE MUST feature</span>
+    <span>say what you want</span>
+    <span>test in the browser</span>
+    <span>Save Point + ✔ in your log</span>
+    <span>next feature</span>
+  </div>
+  <p class="note">CHECK failed? FIX it first (what I SEE + what I WANT) — then SAVE.<br>One row in your Sprint Log for every feature.</p>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <p class="kicker">Save Point</p>
+  <p class="emoji">🎮💾</p>
+  <h2>Save your game</h2>
+  <div class="rule-box">copy <code>index.html</code> → <code>index-v1.html</code></div>
+  <p>After every working feature: make a copy in the file explorer.<br>Next time: <b>index-v2.html</b>, <b>index-v3.html</b>…</p>
+  <p class="note">Like saving before a boss fight — if everything breaks, you go back to your last save.</p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <p class="kicker">Escape Move ① — when you are stuck</p>
+  <h2>📋 Paste the error</h2>
+  <p>Red error? Strange message? <b>Copy ALL of it</b>, then:</p>
+  <div class="prompt-box">I got this error. Please fix it:
+<span class="c">(paste the error here)</span></div>
+  <p class="note">An error is not bad news — it is the best hint you can give the AI.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <p class="kicker">Escape Move ② — when you are stuck</p>
+  <h2>⏪ <code>/undo</code> = time machine</h2>
+  <p>The last change made things worse?</p>
+  <div class="prompt-box">/undo</div>
+  <p class="big">It goes back one step. Repeat if needed.</p>
+  <p class="note">Your best friend when the AI changed too many things.</p>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <p class="kicker">Escape Move ③ — when you are stuck</p>
+  <h2>✂️ Ask smaller</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>🐘 Too big</h3>
+      <ul>
+        <li>"Add a full expense tracker."</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>🐜 Small — works!</h3>
+      <ul>
+        <li>"Add ONE input box and a button that adds the number to a list."</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">If one big ask does not work — cut it into pieces. Ask for piece 1 only.</p>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <p class="kicker">Escape Move ④ — when you are stuck</p>
+  <h2>🔄 Fresh start</h2>
+  <p>Conversation totally confused? Reset the AI's memory:<br>
+     new session with <kbd>Ctrl</kbd>+<kbd>X</kbd>, then <kbd>N</kbd> — and send the restart prompt:</p>
+  <div class="prompt-box">Look at my file index.html.
+It is a ___ app. It already does: ___.
+Now I want to add ONE thing: ___.
+Do not change anything else.</div>
+  <p class="note">Cheat sheet no. 5 — your file stays, only the chat restarts.</p>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <p class="kicker">Checkpoint</p>
+  <h2>🚦 Traffic light</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>🟢 Green</h3>
+      <ul><li>Going well — keep building</li></ul>
+    </div>
+    <div class="col">
+      <h3>🟡 Yellow</h3>
+      <ul><li>I have a question</li></ul>
+    </div>
+    <div class="col">
+      <h3>🔴 Red</h3>
+      <ul><li>I am stuck — help me</li></ul>
+    </div>
+  </div>
+  <p class="big">When I say "Checkpoint!" — everyone shows at the same time.</p>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <p class="kicker">Today's plan</p>
+  <h2>⏱️ 3 sprints</h2>
+  <ul>
+    <li><b>Sprint 1</b> (30 min) — MUST feature 1 → 💾</li>
+    <li>🚦 Checkpoint ①</li>
+    <li><b>Sprint 2</b> (30 min) — MUST feature 2 → 💾</li>
+    <li>🚦 Checkpoint ②</li>
+    <li><b>Sprint 3</b> (25 min) — MUST feature 3 → 💾</li>
+  </ul>
+  <p class="note">Finished early? Test start to finish, FIX bugs — then ONE NICE feature.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <p class="kicker">Definition of Done</p>
+  <h2>✅ You are DONE when…</h2>
+  <ol>
+    <li>Your <b>3 MUST features work</b> in the browser</li>
+    <li>The page shows your <b>app name</b> + <b>"Made by (your name)"</b></li>
+    <li>You can <b>demo it start to finish</b></li>
+  </ol>
+  <p class="note">Check all 3 boxes on your worksheet before you leave.</p>
+</section>
+
+<!-- 12 -->
+<section class="slide title-slide">
+  <p class="kicker">Tomorrow</p>
+  <p class="emoji">🚢</p>
+  <h1>Ship It!</h1>
+  <p class="big">2-minute demo + 3 sentences:<br>app name · what it can do · hardest part</p>
+  <p class="note">Do NOT add new features tonight 😉 — see you tomorrow!</p>
+</section>
+
+<div class="daytag">Vibe Coding Camp — Day 4</div>
+<div class="footer"><span id="counter">1 / 12</span> · <kbd>←</kbd><kbd>→</kbd> or click</div>
+
+<script>
+  // 슬라이드 내비게이션: ←/→/Space/클릭, 해시(#n)로 위치 유지
+  var slides = document.querySelectorAll('.slide');
+  var idx = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), slides.length - 1);
+  function show(i) {
+    idx = Math.min(Math.max(i, 0), slides.length - 1);
+    slides.forEach(function (s, n) { s.classList.toggle('active', n === idx); });
+    document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
+    history.replaceState(null, '', '#' + (idx + 1));
+  }
+  document.addEventListener('keydown', function (e) {
+    if (['ArrowRight', ' ', 'PageDown', 'Enter'].indexOf(e.key) > -1) { e.preventDefault(); show(idx + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) > -1) { e.preventDefault(); show(idx - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  document.addEventListener('click', function () { show(idx + 1); });
+  show(idx);
+</script>
+</body>
+</html>

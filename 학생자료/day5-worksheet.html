@@ -1,0 +1,121 @@
+<!doctype html>
+<!-- Day 5 학생 워크시트(day5-worksheet.md)의 열람용 HTML 변환본 — 원본은 md, 직접 수정 금지 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚢 Day 5 — Ship It!</title>
+<style>
+  :root { --accent:#e11d48; --soft:#ffe4e6; }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef1f6; color:#1e293b; line-height:1.65; font-size:16px;
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans Lao",sans-serif; }
+  body.sheet { font-size:17px; }
+  .page { max-width:860px; margin:2.2rem auto; background:#fff; border-radius:18px;
+          box-shadow:0 2px 24px rgba(15,23,42,.09); overflow:hidden; }
+  .doc-head { background:var(--accent); color:#fff; padding:2rem 3rem 1.8rem; }
+  .doc-head .kicker { text-transform:uppercase; letter-spacing:.14em; font-weight:700;
+                      font-size:.78rem; opacity:.85; margin:0 0 .45rem; }
+  .doc-head h1 { margin:0; font-size:1.85rem; line-height:1.3; }
+  .content { padding:1.4rem 3rem 0; }
+  h2 { font-size:1.32rem; margin:2.1rem 0 .9rem; padding-bottom:.3rem;
+       border-bottom:3px solid var(--soft); }
+  h3 { font-size:1.06rem; color:var(--accent); margin:1.5rem 0 .6rem; }
+  p { margin:.8rem 0; }
+  .hero { background:var(--soft); border-radius:12px; padding:.9rem 1.15rem; }
+  blockquote { margin:1.1rem 0; padding:.85rem 1.15rem; background:#f8fafc;
+               border-left:4px solid var(--accent); border-radius:0 12px 12px 0; color:#334155; }
+  blockquote p { margin:.3rem 0; }
+  ul, ol { margin:.8rem 0; padding-left:1.5rem; }
+  li { margin:.4rem 0; }
+  ul.tasks { list-style:none; padding-left:.2rem; }
+  .cb { display:inline-flex; align-items:center; justify-content:center;
+        width:.95em; height:.95em; border:2px solid var(--accent); border-radius:4px;
+        vertical-align:-.1em; margin-right:.35em; font-size:.95em; flex:none; }
+  .cb.on::after { content:"✓"; color:#fff; font-size:.72em; font-weight:800; }
+  .cb.on { background:var(--accent); }
+  code { background:#eef2f7; border-radius:6px; padding:.08em .38em; font-size:.88em;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre { margin:1rem 0; padding:1rem 1.25rem; border-radius:14px; overflow-x:auto; line-height:1.55;
+        font-size:.92rem; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre.prompt { background:#0f172a; color:#86efac; }
+  pre.mono { background:#f8fafc; border:1.5px solid #e2e8f0; color:#334155; }
+  .tblwrap { overflow-x:auto; margin:1.1rem 0; }
+  table { border-collapse:collapse; width:100%; font-size:.93rem; }
+  th { background:var(--soft); text-align:left; }
+  th, td { border:1px solid #e2e8f0; padding:.5rem .75rem; vertical-align:top; }
+  tbody tr:nth-child(even) td { background:#fafcfe; }
+  td code, th code { white-space:normal; }
+  .blank { display:inline-block; border-bottom:2px solid #94a3b8; height:1.05em; vertical-align:baseline; }
+  .writeline { border-bottom:2px solid #94a3b8; height:1.9em; margin:1rem .2rem; }
+  hr { border:none; border-top:2px dashed #e2e8f0; margin:1.9rem 0; }
+  a { color:var(--accent); }
+  footer { color:#64748b; font-size:.8rem; padding:2.2rem 3rem 2rem; }
+  @media (max-width:640px) {
+    .doc-head, .content, footer { padding-left:1.2rem; padding-right:1.2rem; }
+    .page { margin:0; border-radius:0; }
+  }
+  @media print {
+    body { background:#fff; font-size:12.5px; }
+    body.sheet { font-size:13.5px; }
+    .page { box-shadow:none; margin:0; max-width:none; border-radius:0; }
+    .doc-head { background:#fff; color:var(--accent); padding:0 0 .8rem;
+                border-bottom:4px solid var(--accent); }
+    .doc-head .kicker { opacity:.75; }
+    .content, footer { padding-left:0; padding-right:0; }
+    footer { padding-top:1.4rem; padding-bottom:0; }
+    pre.prompt { background:#fff; color:#0f172a; border:2px solid #94a3b8; }
+    .cb, th, blockquote, .hero { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    table, pre, blockquote, .hero, ul.tasks { break-inside:avoid; }
+    h2, h3 { break-after:avoid; }
+  }
+  @page { margin:13mm 14mm; }
+</style>
+</head>
+<body class="sheet">
+<main class="page">
+  <header class="doc-head">
+    <p class="kicker">Vibe Coding Camp · Day 5 Worksheet</p>
+    <h1>🚢 Day 5 — Ship It!</h1>
+  </header>
+  <div class="content">
+<p class="hero"><strong>Mission: Polish your app, FREEZE it, and present it in 2 minutes.</strong></p>
+<p>Name: <span class="blank" style="min-width:9.2em"></span></p>
+<blockquote><p>The Loop still rules today:<br><strong>TELL</strong> → <strong>WATCH</strong> → <strong>CHECK</strong> → <strong>FIX</strong></p></blockquote>
+<hr>
+<h2>Step 1 — Polish sprint (45 min)</h2>
+<p>Work in THIS order. Start at ① — do not jump to ④!</p>
+<ul class="tasks"><li><span class="cb"></span> <strong>① Finish remaining MUST</strong> — your Definition of Done comes first</li><li><span class="cb"></span> <strong>② Bug hunt</strong> — test everything like a first-time user: click every button, try every screen</li><li><span class="cb"></span> <strong>③ Polish</strong> — clean title, nice colors, add a footer</li><li><span class="cb"></span> <strong>④ NICE</strong> — only if time is left</li></ul>
+<p>Found a bug? Use the FIX formula: <strong>what I SEE + what I WANT</strong>.</p>
+<p>Footer prompt (put YOUR name in the blank):</p>
+<pre class="prompt">Add a footer: &quot;Made by ___ · Vibe Coding Camp 2026&quot;</pre>
+<blockquote><p>❄️ <strong>Code Freeze: At __ : __ we STOP changing code.</strong><br>No new prompts after this time. "One last fix" is the #1 demo killer.<br>After the freeze, we polish the TALK — not the app.</p></blockquote>
+<h2>Step 2 — After the freeze: your 2-minute demo (10 min)</h2>
+<p>Write your 3-sentence script:</p>
+<ol><li>My app is <span class="blank" style="min-width:13.9em"></span>.</li></ol>
+<ol><li>It can <span class="blank" style="min-width:5.9em"></span>, <span class="blank" style="min-width:5.9em"></span>, and <span class="blank" style="min-width:5.9em"></span>.</li></ol>
+<p><em>(your MUST features)</em></p>
+<ol><li>The hardest part was <span class="blank" style="min-width:13.9em"></span>,</li></ol>
+<p>and I solved it by <span class="blank" style="min-width:13.9em"></span>.</p>
+<p>My demo clicks (what I show, in order):</p>
+<ol><li>First I click: <span class="blank" style="min-width:13.9em"></span></li><li>Then I click: <span class="blank" style="min-width:13.9em"></span></li><li>Last I click: <span class="blank" style="min-width:13.9em"></span></li></ol>
+<ul class="tasks"><li><span class="cb"></span> I practiced once with a partner, 2 minutes</li></ul>
+<blockquote><p>In the showcase, do it EXACTLY like the rehearsal. No new things!</p></blockquote>
+<h2>Step 3 — Showcase: audience mission (45 min)</h2>
+<p>👏 Clap big for EVERY presenter.</p>
+<p>While watching: write ONE feature you want to "steal" for your next app.</p>
+<p>Whose app? <span class="blank" style="min-width:9.2em"></span></p>
+<p>What feature? <span class="blank" style="min-width:18.5em"></span></p>
+<hr>
+<h2>🌱 My pledge</h2>
+<p>This month I will build a <span class="blank" style="min-width:5.9em"></span> app for <span class="blank" style="min-width:5.9em"></span>.</p>
+<h2>🎫 Looking back (before you leave)</h2>
+<p>One line about my 5 days:</p>
+<div class="writeline"></div>
+<blockquote><p><strong>🎉 Congratulations!</strong> Five days ago you were a student.<br>Today you are a <strong>vibe coder</strong>. Keep building!</p></blockquote>
+  </div>
+  <footer>Vibe Coding Camp 2026 · Source: day5-worksheet.md</footer>
+</main>
+</body>
+</html>

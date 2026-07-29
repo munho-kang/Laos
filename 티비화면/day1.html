@@ -1,0 +1,241 @@
+<!doctype html>
+<!-- Day 1 수업용 오프라인 슬라이드 — 바이브 코딩 개념 + 첫 웹페이지 (영어 투영용, 외부 리소스 없음) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 1 — Your First Webpage · Vibe Coding Camp</title>
+<style>
+  :root { --accent:#2563eb; --accent-soft:#dbeafe; --ink:#1e293b; --muted:#64748b; --bg:#ffffff; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; }
+  body { font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Lao",sans-serif;
+         background:var(--bg); color:var(--ink); overflow:hidden; cursor:pointer; }
+  .slide { position:absolute; inset:0; display:none; flex-direction:column;
+           justify-content:center; align-items:center; gap:2.4vh;
+           padding:6vh 8vw; text-align:center; }
+  .slide.active { display:flex; }
+  .kicker { text-transform:uppercase; letter-spacing:.18em; font-weight:700;
+            color:var(--accent); font-size:clamp(.8rem,1.6vw,1.1rem); }
+  h1 { font-size:clamp(2.4rem,6vw,4.2rem); line-height:1.15; }
+  h2 { font-size:clamp(1.9rem,4.6vw,3.1rem); line-height:1.2; }
+  p, li { font-size:clamp(1.15rem,2.6vw,1.85rem); line-height:1.55; }
+  ul, ol { text-align:left; max-width:70vw; }
+  li { margin:.7vh 0; }
+  .note { color:var(--muted); font-size:clamp(1rem,2vw,1.4rem); }
+  .big { font-size:clamp(1.6rem,3.6vw,2.6rem); font-weight:800; }
+  .emoji { font-size:clamp(4rem,11vw,7.5rem); line-height:1; }
+  .title-slide { background:var(--accent); color:#fff; }
+  .title-slide .kicker { color:var(--accent-soft); }
+  .title-slide .note { color:var(--accent-soft); }
+  .prompt-box { background:#0f172a; color:#86efac; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+                font-size:clamp(1.05rem,2.2vw,1.6rem); text-align:left; white-space:pre-wrap;
+                padding:2.6vh 2.4vw; border-radius:18px; max-width:78vw; line-height:1.5; }
+  .prompt-box .c { color:#7dd3fc; }
+  .cols { display:flex; gap:3vw; width:min(84vw,1200px); text-align:left; }
+  .col { flex:1; background:#f8fafc; border:2px solid #e2e8f0; border-radius:20px; padding:3.2vh 1.8vw; }
+  .col h3 { font-size:clamp(1.3rem,2.8vw,2rem); margin-bottom:1.2vh; }
+  .col li { font-size:clamp(1rem,2.1vw,1.5rem); }
+  .loop { display:flex; align-items:center; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .pill { background:var(--accent-soft); border:3px solid var(--accent); color:var(--accent);
+          font-weight:800; font-size:clamp(1.2rem,2.8vw,2rem);
+          padding:1.4vh 2.2vw; border-radius:999px; }
+  .loop .arrow { font-size:clamp(1.4rem,3vw,2.2rem); color:var(--muted); font-weight:700; }
+  .loop-caption { display:flex; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .loop-caption span { color:var(--muted); font-size:clamp(.9rem,1.8vw,1.25rem); width:14vw; min-width:130px; }
+  .rule-box { background:#fff7ed; border:3px solid #fb923c; border-radius:20px;
+              padding:2.6vh 3vw; font-size:clamp(1.3rem,3vw,2.1rem); font-weight:700; }
+  kbd { background:#e2e8f0; border-radius:8px; padding:.15em .5em; font-family:inherit;
+        font-size:.85em; border-bottom:3px solid #94a3b8; }
+  .footer { position:fixed; bottom:14px; right:20px; color:var(--muted);
+            font-size:.95rem; z-index:5; }
+  .daytag { position:fixed; bottom:14px; left:20px; color:var(--muted); font-size:.95rem; z-index:5; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide title-slide active">
+  <p class="kicker">Vibe Coding Camp · with opencode</p>
+  <h1>Day 1<br>Your First Webpage</h1>
+  <p class="emoji">🚀</p>
+  <p class="big">"You speak. AI builds. You decide."</p>
+  <p class="note">5 days · 1 project of your own · 0 lines typed by hand</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <p class="emoji">🙋</p>
+  <h2>Have you ever wanted to make<br>your own app or website?</h2>
+  <p class="note">(raise your hand!)</p>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <p class="kicker">Today</p>
+  <h2>3 things, 2 hours</h2>
+  <ol>
+    <li><b>See it</b> — live demo: a webpage made by talking 🎬</li>
+    <li><b>Learn the loop</b> — the 4 magic words 🔁</li>
+    <li><b>Build YOUR page</b> — today, in this room 💻</li>
+  </ol>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <p class="kicker">Live Demo</p>
+  <p class="emoji">🎬</p>
+  <h2>Watch closely.</h2>
+  <p class="big">I will <u>not</u> write any code.<br>I will only <u>talk</u> to the AI.</p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <p class="kicker">The Idea</p>
+  <h2>What is Vibe Coding?</h2>
+  <p class="big">Building software by <b>telling AI what you want</b> —<br>and <b>checking the result</b>.</p>
+  <p class="note">"Fully give in to the vibes." — Andrej Karpathy, 2025<br>(the person who named it)</p>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <h2>Old way vs. New way</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>🧱 Old way</h3>
+      <ul>
+        <li>Study a language for months</li>
+        <li>Type every line yourself</li>
+        <li>One missing <code>;</code> breaks everything</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>🏄 Vibe coding</h3>
+      <ul>
+        <li>Describe what you want</li>
+        <li>AI writes the code</li>
+        <li>You check, you direct</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">You still <b>think</b>. AI just <b>types</b>.</p>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <p class="kicker">How does it work?</p>
+  <h2>The AI read millions of pages<br>of text and code</h2>
+  <p>Now it is very good at guessing <b>what comes next</b>:</p>
+  <div class="prompt-box"><span class="c">You: make a red button →</span>
+AI:  &lt;button style="background:red"&gt;Click&lt;/button&gt;</div>
+  <p class="note">This kind of AI is called an <b>LLM</b> (Large Language Model).</p>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <p class="emoji">⚠️</p>
+  <h2>But the AI can be wrong</h2>
+  <p>Sometimes it invents things that <i>look</i> right but <i>are</i> wrong.<br>
+     This is called <b>hallucination</b>.</p>
+  <div class="rule-box">So YOU always CHECK. 👀</div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <p class="kicker">The Loop — remember these 4 words</p>
+  <div class="loop">
+    <span class="pill">TELL</span><span class="arrow">→</span>
+    <span class="pill">WATCH</span><span class="arrow">→</span>
+    <span class="pill">CHECK</span><span class="arrow">→</span>
+    <span class="pill">FIX</span><span class="arrow">↩</span>
+  </div>
+  <div class="loop-caption">
+    <span>say what you want</span>
+    <span>AI builds it</span>
+    <span>open in browser</span>
+    <span>say what to change</span>
+  </div>
+  <p class="note">We will use this loop every day, all 5 days.</p>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <p class="emoji">👑</p>
+  <h2>You are the boss</h2>
+  <ul>
+    <li>You choose <b>what</b> to build</li>
+    <li>AI does the typing</li>
+    <li>You judge: <b>is it right?</b></li>
+  </ul>
+  <p class="big">You decide. AI builds.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <p class="kicker">How to FIX</p>
+  <h2>The FIX formula</h2>
+  <div class="rule-box">what I SEE &nbsp;+&nbsp; what I WANT</div>
+  <div class="prompt-box">When I click the button, nothing happens.
+I want it to show a fun fact.
+Please fix it.</div>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <p class="kicker">Your Mission</p>
+  <p class="emoji">🎯</p>
+  <h2>My Profile Page</h2>
+  <ol>
+    <li>Make a folder <b>my-profile</b> → open terminal → type <b>opencode</b></li>
+    <li><b>TELL</b> — use the prompt on your worksheet (Step 2)</li>
+    <li><b>CHECK</b> — double-click <b>index.html</b>, see it in the browser</li>
+    <li><b>FIX ×3</b> — pick from the menu, ONE change at a time</li>
+  </ol>
+  <p class="note">Short sentences are OK. Wrong grammar is OK. Just be specific!</p>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <p class="kicker">Recap — say it with me!</p>
+  <div class="loop">
+    <span class="pill">TELL</span><span class="arrow">→</span>
+    <span class="pill">WATCH</span><span class="arrow">→</span>
+    <span class="pill">CHECK</span><span class="arrow">→</span>
+    <span class="pill">FIX</span>
+  </div>
+  <p class="emoji">🔁</p>
+  <p class="big">Today you built a webpage<br>without typing code. 🎉</p>
+</section>
+
+<!-- 14 -->
+<section class="slide title-slide">
+  <p class="kicker">Tomorrow</p>
+  <p class="emoji">🎮</p>
+  <h1>Talk to AI like a pro<br>+ build a GAME</h1>
+  <p class="note">See you tomorrow!</p>
+</section>
+
+<div class="daytag">Vibe Coding Camp — Day 1</div>
+<div class="footer"><span id="counter">1 / 14</span> · <kbd>←</kbd><kbd>→</kbd> or click</div>
+
+<script>
+  // 슬라이드 내비게이션: ←/→/Space/클릭, 해시(#n)로 위치 유지
+  var slides = document.querySelectorAll('.slide');
+  var idx = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), slides.length - 1);
+  function show(i) {
+    idx = Math.min(Math.max(i, 0), slides.length - 1);
+    slides.forEach(function (s, n) { s.classList.toggle('active', n === idx); });
+    document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
+    history.replaceState(null, '', '#' + (idx + 1));
+  }
+  document.addEventListener('keydown', function (e) {
+    if (['ArrowRight', ' ', 'PageDown', 'Enter'].indexOf(e.key) > -1) { e.preventDefault(); show(idx + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) > -1) { e.preventDefault(); show(idx - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  document.addEventListener('click', function () { show(idx + 1); });
+  show(idx);
+</script>
+</body>
+</html>

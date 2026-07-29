@@ -1,0 +1,128 @@
+<!doctype html>
+<!-- 학생 프롬프트 치트시트(prompt-cheatsheet.md)의 열람용 HTML 변환본 — 원본은 md, 직접 수정 금지 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗣️ Prompt Cheat Sheet — Talk to AI in English</title>
+<style>
+  :root { --accent:#0d9488; --soft:#ccfbf1; }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef1f6; color:#1e293b; line-height:1.65; font-size:16px;
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans Lao",sans-serif; }
+  body.sheet { font-size:17px; }
+  .page { max-width:860px; margin:2.2rem auto; background:#fff; border-radius:18px;
+          box-shadow:0 2px 24px rgba(15,23,42,.09); overflow:hidden; }
+  .doc-head { background:var(--accent); color:#fff; padding:2rem 3rem 1.8rem; }
+  .doc-head .kicker { text-transform:uppercase; letter-spacing:.14em; font-weight:700;
+                      font-size:.78rem; opacity:.85; margin:0 0 .45rem; }
+  .doc-head h1 { margin:0; font-size:1.85rem; line-height:1.3; }
+  .content { padding:1.4rem 3rem 0; }
+  h2 { font-size:1.32rem; margin:2.1rem 0 .9rem; padding-bottom:.3rem;
+       border-bottom:3px solid var(--soft); }
+  h3 { font-size:1.06rem; color:var(--accent); margin:1.5rem 0 .6rem; }
+  p { margin:.8rem 0; }
+  .hero { background:var(--soft); border-radius:12px; padding:.9rem 1.15rem; }
+  blockquote { margin:1.1rem 0; padding:.85rem 1.15rem; background:#f8fafc;
+               border-left:4px solid var(--accent); border-radius:0 12px 12px 0; color:#334155; }
+  blockquote p { margin:.3rem 0; }
+  ul, ol { margin:.8rem 0; padding-left:1.5rem; }
+  li { margin:.4rem 0; }
+  ul.tasks { list-style:none; padding-left:.2rem; }
+  .cb { display:inline-flex; align-items:center; justify-content:center;
+        width:.95em; height:.95em; border:2px solid var(--accent); border-radius:4px;
+        vertical-align:-.1em; margin-right:.35em; font-size:.95em; flex:none; }
+  .cb.on::after { content:"✓"; color:#fff; font-size:.72em; font-weight:800; }
+  .cb.on { background:var(--accent); }
+  code { background:#eef2f7; border-radius:6px; padding:.08em .38em; font-size:.88em;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre { margin:1rem 0; padding:1rem 1.25rem; border-radius:14px; overflow-x:auto; line-height:1.55;
+        font-size:.92rem; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre.prompt { background:#0f172a; color:#86efac; }
+  pre.mono { background:#f8fafc; border:1.5px solid #e2e8f0; color:#334155; }
+  .tblwrap { overflow-x:auto; margin:1.1rem 0; }
+  table { border-collapse:collapse; width:100%; font-size:.93rem; }
+  th { background:var(--soft); text-align:left; }
+  th, td { border:1px solid #e2e8f0; padding:.5rem .75rem; vertical-align:top; }
+  tbody tr:nth-child(even) td { background:#fafcfe; }
+  td code, th code { white-space:normal; }
+  .blank { display:inline-block; border-bottom:2px solid #94a3b8; height:1.05em; vertical-align:baseline; }
+  .writeline { border-bottom:2px solid #94a3b8; height:1.9em; margin:1rem .2rem; }
+  hr { border:none; border-top:2px dashed #e2e8f0; margin:1.9rem 0; }
+  a { color:var(--accent); }
+  footer { color:#64748b; font-size:.8rem; padding:2.2rem 3rem 2rem; }
+  @media (max-width:640px) {
+    .doc-head, .content, footer { padding-left:1.2rem; padding-right:1.2rem; }
+    .page { margin:0; border-radius:0; }
+  }
+  @media print {
+    body { background:#fff; font-size:12.5px; }
+    body.sheet { font-size:13.5px; }
+    .page { box-shadow:none; margin:0; max-width:none; border-radius:0; }
+    .doc-head { background:#fff; color:var(--accent); padding:0 0 .8rem;
+                border-bottom:4px solid var(--accent); }
+    .doc-head .kicker { opacity:.75; }
+    .content, footer { padding-left:0; padding-right:0; }
+    footer { padding-top:1.4rem; padding-bottom:0; }
+    pre.prompt { background:#fff; color:#0f172a; border:2px solid #94a3b8; }
+    .cb, th, blockquote, .hero { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    table, pre, blockquote, .hero, ul.tasks { break-inside:avoid; }
+    h2, h3 { break-after:avoid; }
+  }
+  @page { margin:13mm 14mm; }
+</style>
+</head>
+<body class="sheet">
+<main class="page">
+  <header class="doc-head">
+    <p class="kicker">Vibe Coding Camp · Keep this next to you</p>
+    <h1>🗣️ Prompt Cheat Sheet — Talk to AI in English</h1>
+  </header>
+  <div class="content">
+<p>Keep this next to you every day. Copy a template, fill in the blanks <code>___</code>, send it.</p>
+<blockquote><p><strong>Don't worry about grammar.</strong> Short sentences are fine. Wrong grammar is fine.<br>The AI understands you. Just be <strong>specific</strong>.</p></blockquote>
+<hr>
+<h2>1. 🚀 Start something new</h2>
+<pre class="prompt">Create index.html — a ___ (webpage / game / app) about ___.
+It should have: ___, ___, and ___.
+Make it look modern and colorful.</pre>
+<pre class="prompt">Create a simple web app in ONE file (index.html).
+The app is for ___ (who will use it).
+Main feature: the user can ___.</pre>
+<h2>2. 🎨 Change how it looks</h2>
+<pre class="prompt">Change the colors to ___ (blue and white / dark theme / warm colors).</pre>
+<pre class="prompt">Make the title bigger and center it.</pre>
+<pre class="prompt">Add an emoji ___ next to the heading.</pre>
+<pre class="prompt">Make it look better on a phone screen.</pre>
+<h2>3. ➕ Add ONE feature</h2>
+<blockquote><p>Golden Rule: <strong>one thing at a time.</strong></p></blockquote>
+<pre class="prompt">Add a button that ___ (shows a message / clears the list / starts again).</pre>
+<pre class="prompt">Add a score. Start at 0. Add 1 point when the user ___.</pre>
+<pre class="prompt">Save the data so it is still there after I close the browser.</pre>
+<h2>4. 🔧 Fix a problem</h2>
+<p><strong>Formula: what I SEE + what I WANT.</strong></p>
+<pre class="prompt">When I click ___, nothing happens.
+I want it to ___.
+Please fix it.</pre>
+<pre class="prompt">The page shows ___ but it should show ___.</pre>
+<p><strong>If you see an error message → copy ALL of it, then:</strong></p>
+<pre class="prompt">I got this error. Please fix it:
+(paste the error here)</pre>
+<h2>5. 😵 When you are stuck</h2>
+<div class="tblwrap"><table><thead><tr><th>Situation</th><th>Do this</th></tr></thead><tbody><tr><td>AI changed too many things</td><td>Type <code>/undo</code> — it goes back one step. Repeat if needed</td></tr><tr><td>AI is going the wrong way</td><td>Press <strong>Esc</strong> to stop it, then explain again</td></tr><tr><td>Everything is confusing now</td><td>Start a <strong>new session</strong> (Ctrl+X, then N) and use the restart prompt below</td></tr><tr><td>The request feels too big</td><td>Cut it into smaller pieces. Ask for piece 1 only</td></tr></tbody></table></div>
+<p><strong>Restart prompt (new session):</strong></p>
+<pre class="prompt">Look at my file index.html.
+It is a ___ app. It already does: ___.
+Now I want to add ONE thing: ___.
+Do not change anything else.</pre>
+<h2>6. ✨ Useful words</h2>
+<div class="tblwrap"><table><thead><tr><th>Want to say…</th><th>English</th></tr></thead><tbody><tr><td>버튼 / ປຸ່ມ</td><td>button</td></tr><tr><td>목록</td><td>list</td></tr><tr><td>제목</td><td>title / heading</td></tr><tr><td>그림·사진</td><td>image / picture</td></tr><tr><td>점수</td><td>score</td></tr><tr><td>저장하다</td><td>save</td></tr><tr><td>지우다</td><td>delete / clear</td></tr><tr><td>배경</td><td>background</td></tr><tr><td>글자 크기</td><td>font size</td></tr><tr><td>다시 시작</td><td>restart</td></tr><tr><td>무작위로</td><td>randomly</td></tr><tr><td>~할 때</td><td>when the user clicks / types</td></tr></tbody></table></div>
+<hr>
+<h2>⭐ The 3 Golden Rules</h2>
+<ol><li><strong>Be specific</strong> — what it is, how it looks, what it does.</li><li><strong>One thing at a time</strong> — small asks, many rounds.</li><li><strong>You decide, AI builds</strong> — always CHECK in the browser. You are the boss.</li></ol>
+  </div>
+  <footer>Vibe Coding Camp 2026 · Source: prompt-cheatsheet.md</footer>
+</main>
+</body>
+</html>

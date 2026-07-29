@@ -1,0 +1,115 @@
+<!doctype html>
+<!-- Day 5 강사 가이드(day5-guide.md)의 열람용 HTML 변환본 — 원본은 md, 직접 수정 금지 -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 5 강사 가이드 — 완성과 발표 (Ship It!)</title>
+<style>
+  :root { --accent:#e11d48; --soft:#ffe4e6; }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef1f6; color:#1e293b; line-height:1.65; font-size:16px;
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans Lao",sans-serif; }
+  body.sheet { font-size:17px; }
+  .page { max-width:860px; margin:2.2rem auto; background:#fff; border-radius:18px;
+          box-shadow:0 2px 24px rgba(15,23,42,.09); overflow:hidden; }
+  .doc-head { background:var(--accent); color:#fff; padding:2rem 3rem 1.8rem; }
+  .doc-head .kicker { text-transform:uppercase; letter-spacing:.14em; font-weight:700;
+                      font-size:.78rem; opacity:.85; margin:0 0 .45rem; }
+  .doc-head h1 { margin:0; font-size:1.85rem; line-height:1.3; }
+  .content { padding:1.4rem 3rem 0; }
+  h2 { font-size:1.32rem; margin:2.1rem 0 .9rem; padding-bottom:.3rem;
+       border-bottom:3px solid var(--soft); }
+  h3 { font-size:1.06rem; color:var(--accent); margin:1.5rem 0 .6rem; }
+  p { margin:.8rem 0; }
+  .hero { background:var(--soft); border-radius:12px; padding:.9rem 1.15rem; }
+  blockquote { margin:1.1rem 0; padding:.85rem 1.15rem; background:#f8fafc;
+               border-left:4px solid var(--accent); border-radius:0 12px 12px 0; color:#334155; }
+  blockquote p { margin:.3rem 0; }
+  ul, ol { margin:.8rem 0; padding-left:1.5rem; }
+  li { margin:.4rem 0; }
+  ul.tasks { list-style:none; padding-left:.2rem; }
+  .cb { display:inline-flex; align-items:center; justify-content:center;
+        width:.95em; height:.95em; border:2px solid var(--accent); border-radius:4px;
+        vertical-align:-.1em; margin-right:.35em; font-size:.95em; flex:none; }
+  .cb.on::after { content:"✓"; color:#fff; font-size:.72em; font-weight:800; }
+  .cb.on { background:var(--accent); }
+  code { background:#eef2f7; border-radius:6px; padding:.08em .38em; font-size:.88em;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre { margin:1rem 0; padding:1rem 1.25rem; border-radius:14px; overflow-x:auto; line-height:1.55;
+        font-size:.92rem; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre.prompt { background:#0f172a; color:#86efac; }
+  pre.mono { background:#f8fafc; border:1.5px solid #e2e8f0; color:#334155; }
+  .tblwrap { overflow-x:auto; margin:1.1rem 0; }
+  table { border-collapse:collapse; width:100%; font-size:.93rem; }
+  th { background:var(--soft); text-align:left; }
+  th, td { border:1px solid #e2e8f0; padding:.5rem .75rem; vertical-align:top; }
+  tbody tr:nth-child(even) td { background:#fafcfe; }
+  td code, th code { white-space:normal; }
+  .blank { display:inline-block; border-bottom:2px solid #94a3b8; height:1.05em; vertical-align:baseline; }
+  .writeline { border-bottom:2px solid #94a3b8; height:1.9em; margin:1rem .2rem; }
+  hr { border:none; border-top:2px dashed #e2e8f0; margin:1.9rem 0; }
+  a { color:var(--accent); }
+  footer { color:#64748b; font-size:.8rem; padding:2.2rem 3rem 2rem; }
+  @media (max-width:640px) {
+    .doc-head, .content, footer { padding-left:1.2rem; padding-right:1.2rem; }
+    .page { margin:0; border-radius:0; }
+  }
+  @media print {
+    body { background:#fff; font-size:12.5px; }
+    body.sheet { font-size:13.5px; }
+    .page { box-shadow:none; margin:0; max-width:none; border-radius:0; }
+    .doc-head { background:#fff; color:var(--accent); padding:0 0 .8rem;
+                border-bottom:4px solid var(--accent); }
+    .doc-head .kicker { opacity:.75; }
+    .content, footer { padding-left:0; padding-right:0; }
+    footer { padding-top:1.4rem; padding-bottom:0; }
+    pre.prompt { background:#fff; color:#0f172a; border:2px solid #94a3b8; }
+    .cb, th, blockquote, .hero { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    table, pre, blockquote, .hero, ul.tasks { break-inside:avoid; }
+    h2, h3 { break-after:avoid; }
+  }
+  @page { margin:13mm 14mm; }
+</style>
+</head>
+<body class="guide">
+<main class="page">
+  <header class="doc-head">
+    <p class="kicker">강사 가이드 · Instructor Guide · Day 5</p>
+    <h1>Day 5 강사 가이드 — 완성과 발표 (Ship It!)</h1>
+  </header>
+  <div class="content">
+<p class="hero"><strong>오늘의 목표.</strong> 캡스톤을 다듬어 "완성"을 선언하고(code freeze), 전원이 2분 데모 발표를 해낸다. 마지막 20분에 AI의 한계와 사람의 역할을 정리하고, 캠프 이후에도 계속 만들 동기를 심는다. <strong>오늘은 가르치는 날이 아니라 축하하는 날이다 — 강사의 주 업무는 진행과 칭찬.</strong></p>
+<p class="hero"><strong>오늘의 산출물.</strong> 완성작 + 1인 2분 데모 발표 + "다음에 만들 앱" 서약 1줄.</p>
+<h2>준비물</h2>
+<ul class="tasks"><li><span class="cb"></span><code>slides/day5.html</code> 투영, <code>handouts/day5-worksheet.md</code> 배포</li><li><span class="cb"></span>발표 동선 결정: 발표자 PC를 프로젝터에 직결 vs USB로 강사 PC에 <code>index.html</code> 복사(권장 — 전환 빠름. 단일 파일이라 복사가 쉽다)</li><li><span class="cb"></span>타임키퍼용 타이머(휴대폰), 2분 종료 신호 약속(박수 시작 등 부드러운 방식)</li><li><span class="cb"></span>수료증·기념품·단체사진 등 봉사단 운영 항목 확인</li><li><span class="cb"></span>code freeze 시각 계산해 두기(수업 시작 +50분) — 슬라이드/보드에 실제 시각으로 공지</li></ul>
+<h2>타임라인 (120분)</h2>
+<div class="tblwrap"><table><thead><tr><th>시간</th><th>분량</th><th>내용</th><th>자료</th></tr></thead><tbody><tr><td>00:00</td><td>5′</td><td>오늘 흐름 + code freeze 시각 공지</td><td>슬라이드 1–2</td></tr><tr><td>00:05</td><td>45′</td><td>폴리싱 스프린트 (우선순위 순서대로)</td><td>슬라이드 3–4, 워크시트 Step 1</td></tr><tr><td>00:50</td><td>10′</td><td><strong>CODE FREEZE</strong> → 3문장 대본 작성 + 짝 리허설 1회</td><td>슬라이드 5–7, 워크시트 Step 2</td></tr><tr><td>01:00</td><td>45′</td><td>쇼케이스: 1인 2분 데모</td><td>슬라이드 9(배경)</td></tr><tr><td>01:45</td><td>15′</td><td>클로징: AI의 한계·계속하는 법·수료</td><td>슬라이드 10–12</td></tr></tbody></table></div>
+<p>인원별 발표 시간 계산: 45분 ÷ (2분 발표 + 30초 전환) ≈ <strong>18명</strong>. 그 이상이면 2개 조로 나눠 병렬 진행(조별 진행자 1명) 후 조 대표작 1~2개만 전체 시연.</p>
+<h2>진행 대본</h2>
+<h3>1) 오프닝 (5′)</h3>
+<p>"Five days ago, most of you had never built anything. Today, everyone in this room presents their own app. Today's plan: polish 45 minutes — freeze — then, showcase. <strong>At (실제 시각), we stop changing code. No exceptions.</strong> 발표 직전의 '마지막 수정 한 번만'이 앱을 부순다."</p>
+<h3>2) 폴리싱 스프린트 (45′) — 슬라이드 3–4</h3>
+<p>우선순위를 명확히 (슬라이드 3, 워크시트와 동일).</p>
+<ol><li><strong>남은 MUST 마무리</strong> — 어제 못 끝낸 학생 최우선. 필요하면 기능을 더 컷("보여줄 수 있는 상태"가 목표).</li><li><strong>버그 사냥</strong> — 처음 여는 사람처럼 전체 시나리오를 눌러보고, 깨지는 곳을 FIX 공식으로 수리.</li><li><strong>폴리시</strong> — 제목·색 정리, 푸터에 <code>Made by ___ · Vibe Coding Camp 2026</code> 넣기(워크시트에 프롬프트 제공).</li><li><strong>NICE</strong> — 시간 남는 학생만. <strong>freeze 15분 전부터는 NICE 신규 착수 금지</strong>(강사가 시간 보고 선언).</li></ol>
+<p>순회 우선순위: 어제 빨간불이었던 학생부터. Save Point 확인("지금 버전 백업했어?") 후 수리 시작.</p>
+<h3>3) Code Freeze + 발표 준비 (10′) — 슬라이드 5–7</h3>
+<ul><li>freeze 선언 후 키보드에서 손 떼게 하기. "Your app is DONE. 지금부터는 앱이 아니라 발표를 다듬는다."</li><li><strong>3문장 대본</strong> (워크시트 빈칸): ① "My app is <span class="blank" style="min-width:1.3em"></span> (name)." ② "It can <span class="blank" style="min-width:1.3em"></span>, <span class="blank" style="min-width:1.3em"></span>, and <span class="blank" style="min-width:1.3em"></span> (MUST features)." ③ "The hardest part was <span class="blank" style="min-width:1.3em"></span>, and I solved it by <span class="blank" style="min-width:1.3em"></span>." + 데모에서 누를 순서 3개 메모.</li><li>짝과 1회 리허설(각 2분, 타이머). "발표에서 새로운 걸 시도하지 말 것 — 리허설한 그대로."</li></ul>
+<h3>4) 쇼케이스 (45′) — 오늘의 하이라이트</h3>
+<ul><li>배경 슬라이드 9(3문장 공식이 항상 떠 있는 슬라이드)를 띄워 두고 진행.</li><li>순서: 자원자 2~3명 먼저 → 나머지는 좌석 순. 첫 발표자에게 박수 크게 유도해 분위기 설정.</li><li><strong>청중 미션</strong>(워크시트): "다른 사람 앱에서 훔치고 싶은 기능 1개" 메모 — 딴짓 방지 + 마지막에 2~3명 발표시켜 서로 칭찬 효과.</li><li>강사는 발표마다 <strong>구체적 칭찬 1개</strong> 메모 후 즉시 코멘트("필터 버튼 반응 속도가 좋다" 수준의 구체성). 발표가 무너진 학생에게는 과정 칭찬("어제 빨간불에서 여기까지 온 것").</li><li>시간 초과는 부드럽게 박수로 마감. 데모가 죽으면: "It happens to every developer. Tell us what it does" — 말로 잇게 한다.</li></ul>
+<h3>5) 클로징 (15′) — 슬라이드 10–12</h3>
+<ul><li><strong>AI가 못 하는 것</strong> (슬라이드 10): ① 무엇을 만들지 결정 ② 그것이 맞는지 판단 ③ 너의 사용자를 이해. "그래서 이 5일 동안 가장 많이 성장한 건 AI가 아니라 <strong>너희의 결정 능력</strong>이다." 환각 이야기 마지막으로 한 번: "AI를 믿지 말고, 확인하라."</li><li><strong>계속하는 법</strong> (슬라이드 11): ① 이번 달 미션 — 가족·친구를 위한 앱 1개 (워크시트 서약란에 한 줄) ② 만들수록 는다 — 오늘의 프롬프트 실력은 5일 전과 비교 불가 ③ 더 깊이 가고 싶다면 — 코드 자체(HTML/JS)를 배우면 AI를 더 정밀하게 부릴 수 있다.</li><li>수료·단체사진 (슬라이드 12). "5일 전 여러분은 학생이었고, 오늘은 vibe coder다. 축하한다!"</li></ul>
+<h2>예상 질문·상황 대응</h2>
+<div class="tblwrap"><table><thead><tr><th>상황/질문</th><th>대응</th></tr></thead><tbody><tr><td>freeze 후에도 몰래 수정</td><td>유머로 단호하게: "Freeze means freeze! 발표 직전 수정은 데모 사망 1순위"</td></tr><tr><td>발표 공포가 심한 학생</td><td>자리에서 발표 허용, 또는 강사가 옆에서 화면 조작을 도와 말만 하게. 3문장만 읽어도 성공으로 인정</td></tr><tr><td>데모 중 앱이 깨짐</td><td>위 대본대로 말로 잇게 하고, 원인 규명은 하지 않는다(발표 흐름 우선)</td></tr><tr><td>미완성 학생</td><td>"완성된 부분까지"만 데모. 3문장 중 ②를 "It can <span class="blank" style="min-width:1.3em"></span> (동작하는 것만)"으로</td></tr><tr><td>"캠프 끝나도 opencode 쓸 수 있어요?"</td><td>세팅 자료의 계정·비용 안내에 따름(과금 조건 등은 세팅 자료 기준으로 답변). 무료 대안 도구도 존재한다는 정도로</td></tr><tr><td>"코드를 진짜 배우고 싶어요"</td><td>최고의 신호. HTML/CSS/JS 기초 무료 자료(freeCodeCamp, Khan Academy 등)를 추천하고, "AI에게 '이 코드 한 줄씩 설명해줘'라고 시키는 것"도 훌륭한 공부법이라고 안내</td></tr></tbody></table></div>
+<h2>화이트보드 백업 (정전·프로젝터 불능 시)</h2>
+<p>보드에: 오늘 흐름 3단계 + code freeze 시각(크게) + 폴리시 우선순위 4개 + 3문장 공식.</p>
+<h2>슬라이드 구성 (slides/day5.html, 12장)</h2>
+<div class="tblwrap"><table><thead><tr><th>#</th><th>슬라이드</th><th>핵심 내용</th></tr></thead><tbody><tr><td>1</td><td>타이틀</td><td>Day 5: Ship It! 🚢</td></tr><tr><td>2</td><td>Today</td><td>polish 45′ → ❄️ code freeze (실제 시각 기입 자리) → 🎤 showcase → 🎉</td></tr><tr><td>3</td><td>Polish priority</td><td>① finish MUST ② hunt bugs(전체 시나리오 테스트) ③ title·colors·footer ④ NICE</td></tr><tr><td>4</td><td>Made by YOU</td><td>푸터 프롬프트 예시: <code>Add a footer: &quot;Made by ___ · Vibe Coding Camp 2026&quot;</code></td></tr><tr><td>5</td><td>Code freeze</td><td>❄️ "At __:__ we STOP." 이유: 발표 직전 수정 = 데모 사망</td></tr><tr><td>6</td><td>Demo script</td><td>3문장 공식: My app is _ / It can _,_,_ / The hardest part was _</td></tr><tr><td>7</td><td>Rehearse</td><td>짝과 1회, 2분 타이머, "발표는 리허설대로만"</td></tr><tr><td>8</td><td>Showcase rules</td><td>2 min / big applause / audience mission: "훔치고 싶은 기능 1개 메모"</td></tr><tr><td>9</td><td>(배경 슬라이드)</td><td>🎤 Showcase Time — 3문장 공식 상시 표시용</td></tr><tr><td>10</td><td>What AI cannot do</td><td>decide what / judge right / know your users → "That's YOU." + trust but CHECK</td></tr><tr><td>11</td><td>Keep going</td><td>this month: 1 app for family / build more = get better / want more? learn the code itself</td></tr><tr><td>12</td><td>Congratulations</td><td>🎉 "You are vibe coders now." (단체사진 큐)</td></tr></tbody></table></div>
+<h2>워크시트 매핑 (handouts/day5-worksheet.md)</h2>
+<p>Step 1 폴리시 체크리스트(우선순위 4단계 + 푸터 프롬프트) → Step 2 3문장 대본 빈칸 + 데모 클릭 순서 3칸 + 리허설 체크 → Step 3 청중 미션 메모칸(훔치고 싶은 기능) → 마지막: 서약 1줄("이번 달에 <span class="blank" style="min-width:1.3em"></span>를 위한 <span class="blank" style="min-width:1.3em"></span> 앱을 만든다") + 5일 회고 한 줄.</p>
+  </div>
+  <footer>Vibe Coding Camp 2026 · Source: day5-guide.md</footer>
+</main>
+</body>
+</html>

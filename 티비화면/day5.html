@@ -1,0 +1,210 @@
+<!doctype html>
+<!-- Day 5 수업용 오프라인 슬라이드 — 폴리싱·Code Freeze·쇼케이스 발표·수료 (영어 투영용, 외부 리소스 없음) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 5 — Ship It! · Vibe Coding Camp</title>
+<style>
+  :root { --accent:#e11d48; --accent-soft:#ffe4e6; --ink:#1e293b; --muted:#64748b; --bg:#ffffff; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; }
+  body { font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Lao",sans-serif;
+         background:var(--bg); color:var(--ink); overflow:hidden; cursor:pointer; }
+  .slide { position:absolute; inset:0; display:none; flex-direction:column;
+           justify-content:center; align-items:center; gap:2.4vh;
+           padding:6vh 8vw; text-align:center; }
+  .slide.active { display:flex; }
+  .kicker { text-transform:uppercase; letter-spacing:.18em; font-weight:700;
+            color:var(--accent); font-size:clamp(.8rem,1.6vw,1.1rem); }
+  h1 { font-size:clamp(2.4rem,6vw,4.2rem); line-height:1.15; }
+  h2 { font-size:clamp(1.9rem,4.6vw,3.1rem); line-height:1.2; }
+  p, li { font-size:clamp(1.15rem,2.6vw,1.85rem); line-height:1.55; }
+  ul, ol { text-align:left; max-width:70vw; }
+  li { margin:.7vh 0; }
+  .note { color:var(--muted); font-size:clamp(1rem,2vw,1.4rem); }
+  .big { font-size:clamp(1.6rem,3.6vw,2.6rem); font-weight:800; }
+  .emoji { font-size:clamp(4rem,11vw,7.5rem); line-height:1; }
+  .title-slide { background:var(--accent); color:#fff; }
+  .title-slide .kicker { color:var(--accent-soft); }
+  .title-slide .note { color:var(--accent-soft); }
+  .prompt-box { background:#0f172a; color:#86efac; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+                font-size:clamp(1.05rem,2.2vw,1.6rem); text-align:left; white-space:pre-wrap;
+                padding:2.6vh 2.4vw; border-radius:18px; max-width:78vw; line-height:1.5; }
+  .prompt-box .c { color:#7dd3fc; }
+  .cols { display:flex; gap:3vw; width:min(84vw,1200px); text-align:left; }
+  .col { flex:1; background:#f8fafc; border:2px solid #e2e8f0; border-radius:20px; padding:3.2vh 1.8vw; }
+  .col h3 { font-size:clamp(1.3rem,2.8vw,2rem); margin-bottom:1.2vh; }
+  .col li { font-size:clamp(1rem,2.1vw,1.5rem); }
+  .loop { display:flex; align-items:center; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .pill { background:var(--accent-soft); border:3px solid var(--accent); color:var(--accent);
+          font-weight:800; font-size:clamp(1.2rem,2.8vw,2rem);
+          padding:1.4vh 2.2vw; border-radius:999px; }
+  .loop .arrow { font-size:clamp(1.4rem,3vw,2.2rem); color:var(--muted); font-weight:700; }
+  .loop-caption { display:flex; gap:1.2vw; flex-wrap:wrap; justify-content:center; }
+  .loop-caption span { color:var(--muted); font-size:clamp(.9rem,1.8vw,1.25rem); width:14vw; min-width:130px; }
+  .rule-box { background:#fff7ed; border:3px solid #fb923c; border-radius:20px;
+              padding:2.6vh 3vw; font-size:clamp(1.3rem,3vw,2.1rem); font-weight:700; }
+  kbd { background:#e2e8f0; border-radius:8px; padding:.15em .5em; font-family:inherit;
+        font-size:.85em; border-bottom:3px solid #94a3b8; }
+  .footer { position:fixed; bottom:14px; right:20px; color:var(--muted);
+            font-size:.95rem; z-index:5; }
+  .daytag { position:fixed; bottom:14px; left:20px; color:var(--muted); font-size:.95rem; z-index:5; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide title-slide active">
+  <p class="kicker">Vibe Coding Camp · with opencode</p>
+  <h1>Day 5<br>Ship It!</h1>
+  <p class="emoji">🚢</p>
+  <p class="big">Today, everyone in this room<br>presents their own app.</p>
+  <p class="note">Five days ago, most of you had never built anything.</p>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <p class="kicker">Today</p>
+  <h2>Polish → Freeze → Showcase</h2>
+  <div class="loop">
+    <span class="pill">🧽 POLISH 45′</span><span class="arrow">→</span>
+    <span class="pill">❄️ FREEZE</span><span class="arrow">→</span>
+    <span class="pill">🎤 SHOWCASE</span><span class="arrow">→</span>
+    <span class="pill">🎉</span>
+  </div>
+  <div class="rule-box">❄️ Code Freeze at&nbsp; <u>__ : __</u></div>
+  <p class="note">The instructor announces the real time now — write it on your worksheet!</p>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <p class="kicker">Polish sprint — 45 minutes</p>
+  <h2>Work in this order</h2>
+  <ol>
+    <li><b>Finish MUST</b> — your Definition of Done comes first ✅</li>
+    <li><b>Hunt bugs</b> — test everything like a first-time user 🐛</li>
+    <li><b>Polish</b> — title · colors · footer ✨</li>
+    <li><b>NICE</b> — only if time is left</li>
+  </ol>
+  <p class="note">Found a bug? FIX formula: what I SEE + what I WANT.</p>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <p class="kicker">Polish — sign your work</p>
+  <h2>Made by YOU</h2>
+  <div class="prompt-box">Add a footer: "Made by ___ · Vibe Coding Camp 2026"</div>
+  <p class="note">Your name goes in the blank. You built this. 🖊️</p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <p class="emoji">❄️</p>
+  <h2>Code Freeze</h2>
+  <p class="big">At <u>&nbsp;__ : __&nbsp;</u> we STOP changing code.</p>
+  <div class="rule-box">"Just one last fix" before the demo<br>= the #1 demo killer 💀</div>
+  <p class="note">After the freeze: hands off the keyboard. We polish the TALK, not the app.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <p class="kicker">Your 2-minute demo</p>
+  <h2>The 3-sentence script</h2>
+  <ol>
+    <li>"My app is <b>___</b>."</li>
+    <li>"It can <b>___</b>, <b>___</b>, and <b>___</b>." <span class="note">(your MUST features)</span></li>
+    <li>"The hardest part was <b>___</b>,<br>and I solved it by <b>___</b>."</li>
+  </ol>
+  <p class="note">Write it on your worksheet (Step 2) — plus your 3 demo clicks.</p>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <p class="emoji">🎭</p>
+  <h2>Rehearse with a partner</h2>
+  <ul>
+    <li>One round each — <b>2 minutes</b>, timer on ⏱️</li>
+    <li>Say your 3 sentences + do your 3 clicks</li>
+  </ul>
+  <div class="rule-box">Present EXACTLY like the rehearsal.<br>No new things on stage!</div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <p class="kicker">Showcase rules</p>
+  <h2>2 minutes of fame</h2>
+  <ul>
+    <li>⏱️ <b>2 minutes</b> each — applause means time is up</li>
+    <li>👏 <b>Big applause</b> for EVERY presenter</li>
+    <li>👀 <b>Audience mission:</b> write ONE feature you want to "steal" for your next app (worksheet Step 3)</li>
+  </ul>
+</section>
+
+<!-- 9 (쇼케이스 진행 내내 띄워 두는 배경 슬라이드) -->
+<section class="slide">
+  <p class="emoji">🎤</p>
+  <h2>Showcase Time</h2>
+  <p class="big">1&nbsp; "My app is ___."<br>
+     2&nbsp; "It can ___, ___, and ___."<br>
+     3&nbsp; "The hardest part was ___,<br>and I solved it by ___."</p>
+  <p class="note">⏱️ 2 minutes · 👏 big applause · 👀 find a feature to steal</p>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <p class="kicker">Closing</p>
+  <h2>What AI cannot do</h2>
+  <ol>
+    <li><b>Decide</b> what to build</li>
+    <li><b>Judge</b> if it is right</li>
+    <li><b>Know</b> your users</li>
+  </ol>
+  <p class="big">That's YOU. 👑</p>
+  <div class="rule-box">Trust, but CHECK. 👀</div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <p class="kicker">Keep going</p>
+  <h2>After the camp</h2>
+  <ol>
+    <li>📅 <b>This month:</b> build 1 app for your family or friends — write your pledge (worksheet)</li>
+    <li>📈 <b>Build more = get better.</b> Compare your prompts today vs Day 1!</li>
+    <li>📚 <b>Want more power?</b> Learn the code itself — HTML · CSS · JS</li>
+  </ol>
+</section>
+
+<!-- 12 -->
+<section class="slide title-slide">
+  <p class="kicker">Camp complete</p>
+  <p class="emoji">🎉</p>
+  <h1>You are vibe coders now.</h1>
+  <p class="big">5 days · your own app · a room full of builders</p>
+  <p class="note">Congratulations! Certificates & group photo 📸</p>
+</section>
+
+<div class="daytag">Vibe Coding Camp — Day 5</div>
+<div class="footer"><span id="counter">1 / 12</span> · <kbd>←</kbd><kbd>→</kbd> or click</div>
+
+<script>
+  // 슬라이드 내비게이션: ←/→/Space/클릭, 해시(#n)로 위치 유지
+  var slides = document.querySelectorAll('.slide');
+  var idx = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), slides.length - 1);
+  function show(i) {
+    idx = Math.min(Math.max(i, 0), slides.length - 1);
+    slides.forEach(function (s, n) { s.classList.toggle('active', n === idx); });
+    document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
+    history.replaceState(null, '', '#' + (idx + 1));
+  }
+  document.addEventListener('keydown', function (e) {
+    if (['ArrowRight', ' ', 'PageDown', 'Enter'].indexOf(e.key) > -1) { e.preventDefault(); show(idx + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) > -1) { e.preventDefault(); show(idx - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  document.addEventListener('click', function () { show(idx + 1); });
+  show(idx);
+</script>
+</body>
+</html>

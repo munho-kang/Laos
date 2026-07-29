@@ -1,0 +1,124 @@
+<!doctype html>
+<!-- Day 2 학생 워크시트(day2-worksheet.md)의 열람용 HTML 변환본 — 원본은 md, 직접 수정 금지 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎮 Day 2 — Talking to AI Like a Pro</title>
+<style>
+  :root { --accent:#059669; --soft:#d1fae5; }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef1f6; color:#1e293b; line-height:1.65; font-size:16px;
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans Lao",sans-serif; }
+  body.sheet { font-size:17px; }
+  .page { max-width:860px; margin:2.2rem auto; background:#fff; border-radius:18px;
+          box-shadow:0 2px 24px rgba(15,23,42,.09); overflow:hidden; }
+  .doc-head { background:var(--accent); color:#fff; padding:2rem 3rem 1.8rem; }
+  .doc-head .kicker { text-transform:uppercase; letter-spacing:.14em; font-weight:700;
+                      font-size:.78rem; opacity:.85; margin:0 0 .45rem; }
+  .doc-head h1 { margin:0; font-size:1.85rem; line-height:1.3; }
+  .content { padding:1.4rem 3rem 0; }
+  h2 { font-size:1.32rem; margin:2.1rem 0 .9rem; padding-bottom:.3rem;
+       border-bottom:3px solid var(--soft); }
+  h3 { font-size:1.06rem; color:var(--accent); margin:1.5rem 0 .6rem; }
+  p { margin:.8rem 0; }
+  .hero { background:var(--soft); border-radius:12px; padding:.9rem 1.15rem; }
+  blockquote { margin:1.1rem 0; padding:.85rem 1.15rem; background:#f8fafc;
+               border-left:4px solid var(--accent); border-radius:0 12px 12px 0; color:#334155; }
+  blockquote p { margin:.3rem 0; }
+  ul, ol { margin:.8rem 0; padding-left:1.5rem; }
+  li { margin:.4rem 0; }
+  ul.tasks { list-style:none; padding-left:.2rem; }
+  .cb { display:inline-flex; align-items:center; justify-content:center;
+        width:.95em; height:.95em; border:2px solid var(--accent); border-radius:4px;
+        vertical-align:-.1em; margin-right:.35em; font-size:.95em; flex:none; }
+  .cb.on::after { content:"✓"; color:#fff; font-size:.72em; font-weight:800; }
+  .cb.on { background:var(--accent); }
+  code { background:#eef2f7; border-radius:6px; padding:.08em .38em; font-size:.88em;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre { margin:1rem 0; padding:1rem 1.25rem; border-radius:14px; overflow-x:auto; line-height:1.55;
+        font-size:.92rem; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre.prompt { background:#0f172a; color:#86efac; }
+  pre.mono { background:#f8fafc; border:1.5px solid #e2e8f0; color:#334155; }
+  .tblwrap { overflow-x:auto; margin:1.1rem 0; }
+  table { border-collapse:collapse; width:100%; font-size:.93rem; }
+  th { background:var(--soft); text-align:left; }
+  th, td { border:1px solid #e2e8f0; padding:.5rem .75rem; vertical-align:top; }
+  tbody tr:nth-child(even) td { background:#fafcfe; }
+  td code, th code { white-space:normal; }
+  .blank { display:inline-block; border-bottom:2px solid #94a3b8; height:1.05em; vertical-align:baseline; }
+  .writeline { border-bottom:2px solid #94a3b8; height:1.9em; margin:1rem .2rem; }
+  hr { border:none; border-top:2px dashed #e2e8f0; margin:1.9rem 0; }
+  a { color:var(--accent); }
+  footer { color:#64748b; font-size:.8rem; padding:2.2rem 3rem 2rem; }
+  @media (max-width:640px) {
+    .doc-head, .content, footer { padding-left:1.2rem; padding-right:1.2rem; }
+    .page { margin:0; border-radius:0; }
+  }
+  @media print {
+    body { background:#fff; font-size:12.5px; }
+    body.sheet { font-size:13.5px; }
+    .page { box-shadow:none; margin:0; max-width:none; border-radius:0; }
+    .doc-head { background:#fff; color:var(--accent); padding:0 0 .8rem;
+                border-bottom:4px solid var(--accent); }
+    .doc-head .kicker { opacity:.75; }
+    .content, footer { padding-left:0; padding-right:0; }
+    footer { padding-top:1.4rem; padding-bottom:0; }
+    pre.prompt { background:#fff; color:#0f172a; border:2px solid #94a3b8; }
+    .cb, th, blockquote, .hero { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    table, pre, blockquote, .hero, ul.tasks { break-inside:avoid; }
+    h2, h3 { break-after:avoid; }
+  }
+  @page { margin:13mm 14mm; }
+</style>
+</head>
+<body class="sheet">
+<main class="page">
+  <header class="doc-head">
+    <p class="kicker">Vibe Coding Camp · Day 2 Worksheet</p>
+    <h1>🎮 Day 2 — Talking to AI Like a Pro</h1>
+  </header>
+  <div class="content">
+<p class="hero"><strong>Mission: Build a number guessing game — and see why your WORDS matter.</strong></p>
+<p>Name: <span class="blank" style="min-width:9.2em"></span></p>
+<blockquote><p>The Loop (remember these 4 words!):<br><strong>TELL</strong> (say what you want) → <strong>WATCH</strong> (AI builds) → <strong>CHECK</strong> (open in browser) → <strong>FIX</strong> (say what to change)</p></blockquote>
+<hr>
+<h2>Step 1 — The vague experiment (10 min)</h2>
+<p>Today we start the WRONG way — on purpose. 😉</p>
+<ul class="tasks"><li><span class="cb"></span> Make a new folder on the Desktop. Name it: <code>number-game</code></li><li><span class="cb"></span> Open the terminal <strong>in that folder</strong></li><li><span class="cb"></span> Type <code>opencode</code> and press Enter</li><li><span class="cb"></span> Send exactly this prompt — nothing more:</li></ul>
+<pre class="prompt">Make a game.</pre>
+<p><strong>WATCH</strong> what the AI does. Then fill in this table:</p>
+<div class="tblwrap"><table><thead><tr><th>Question</th><th>Your answer</th></tr></thead><tbody><tr><td>What did the AI make?</td><td><span class="blank" style="min-width:16.0em"></span></td></tr><tr><td>What did YOU want?</td><td><span class="blank" style="min-width:16.0em"></span></td></tr><tr><td>Same or different?</td><td><span class="cb"></span> Same / <span class="cb"></span> Different</td></tr></tbody></table></div>
+<blockquote><p>Did the AI ask you a question back ("What kind of game?")?<br>Do <strong>not</strong> answer it. Write it in the table — it means the AI did not have enough information!</p></blockquote>
+<p>Done early? Compare with your neighbor. Different results from the same prompt? <strong>That is the point!</strong></p>
+<h2>Step 2 — New session + specific prompt (10 min)</h2>
+<ul class="tasks"><li><span class="cb"></span> Start a <strong>new session</strong>: press <strong>Ctrl+X, then N</strong></li><li><span class="cb"></span> Fill in the blanks <code>___</code>, then send this prompt:</li></ul>
+<pre class="prompt">Create index.html — a number guessing game.
+The computer picks a secret number from ___ to ___.
+I type a guess. The game tells me &quot;higher&quot; or &quot;lower&quot;.
+I have ___ tries. Show a win or lose message at the end.
+Make it colorful with big buttons. Use the color ___.</pre>
+<p>(Example: from <code>1</code> to <code>100</code> · <code>7</code> tries · color <code>blue</code>)</p>
+<p><strong>CHECK:</strong></p>
+<ul class="tasks"><li><span class="cb"></span> Open the folder <code>number-game</code> → double-click <code>index.html</code></li><li><span class="cb"></span> Play your game 2 or 3 times</li><li><span class="cb"></span> Raise your hand when your game works! 🎉</li></ul>
+<blockquote><p>Same AI as Step 1. Only your <strong>words</strong> changed.<br><strong>Golden Rule 1: Be specific.</strong></p></blockquote>
+<h2>Step 3 — FIX rounds (45 min)</h2>
+<p>Ask for changes — <strong>ONE at a time</strong> (<strong>Golden Rule 2!</strong>). After each change, refresh the browser (F5) and CHECK. Do <strong>at least 3</strong>:</p>
+<div class="tblwrap"><table><thead><tr><th>✔</th><th>FIX idea</th><th>Example prompt</th></tr></thead><tbody><tr><td><span class="cb"></span></td><td>Show tries left</td><td><code>Show how many tries I have left, big and clear.</code></td></tr><tr><td><span class="cb"></span></td><td>Colors + emoji</td><td><code>Add fun emoji 🎯🎉 and change the colors to ___ and ___.</code></td></tr><tr><td><span class="cb"></span></td><td>Play Again button</td><td><code>Add a &quot;Play Again&quot; button so I can restart without refreshing the page.</code></td></tr><tr><td><span class="cb"></span></td><td>Win counter</td><td><code>Count how many games I win. Show the number at the top.</code></td></tr></tbody></table></div>
+<h3>💪 Stretch (if you finish early)</h3>
+<ul class="tasks"><li><span class="cb"></span> <code>Save my best score (fewest tries) so it is still there after I close the browser.</code></li><li><span class="cb"></span> <code>Add difficulty levels: Easy (1 to 50) and Hard (1 to 500). Let me choose before the game starts.</code></li></ul>
+<hr>
+<h2>🛟 Safety tools (keep this box in mind!)</h2>
+<div class="tblwrap"><table><thead><tr><th>Tool</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Esc</strong></td><td>Stop — the AI stops right now</td></tr><tr><td><code>/undo</code></td><td>Undo the last change (you can repeat it)</td></tr><tr><td><strong>Ctrl+X, then N</strong></td><td>New session — a fresh start</td></tr></tbody></table></div>
+<p>Stuck? Open your <strong>Prompt Cheat Sheet</strong>, section 5. 😵</p>
+<h2>✅ Today's checkpoints</h2>
+<ul class="tasks"><li><span class="cb"></span> My game works in the browser</li><li><span class="cb"></span> I filled in the Step 1 table (vague vs specific)</li><li><span class="cb"></span> I asked for 3+ FIX changes and they worked</li></ul>
+<h2>🎫 Exit ticket (before you leave)</h2>
+<p><strong>Tomorrow we build YOUR idea. Write ONE app idea:</strong></p>
+<div class="writeline"></div>
+  </div>
+  <footer>Vibe Coding Camp 2026 · Source: day2-worksheet.md</footer>
+</main>
+</body>
+</html>

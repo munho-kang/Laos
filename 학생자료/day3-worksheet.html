@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- Day 3 학생 워크시트(day3-worksheet.md)의 열람용 HTML 변환본 — 원본은 md, 직접 수정 금지 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💡 Day 3 — My App Plan</title>
+<style>
+  :root { --accent:#ea580c; --soft:#ffedd5; }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef1f6; color:#1e293b; line-height:1.65; font-size:16px;
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans Lao",sans-serif; }
+  body.sheet { font-size:17px; }
+  .page { max-width:860px; margin:2.2rem auto; background:#fff; border-radius:18px;
+          box-shadow:0 2px 24px rgba(15,23,42,.09); overflow:hidden; }
+  .doc-head { background:var(--accent); color:#fff; padding:2rem 3rem 1.8rem; }
+  .doc-head .kicker { text-transform:uppercase; letter-spacing:.14em; font-weight:700;
+                      font-size:.78rem; opacity:.85; margin:0 0 .45rem; }
+  .doc-head h1 { margin:0; font-size:1.85rem; line-height:1.3; }
+  .content { padding:1.4rem 3rem 0; }
+  h2 { font-size:1.32rem; margin:2.1rem 0 .9rem; padding-bottom:.3rem;
+       border-bottom:3px solid var(--soft); }
+  h3 { font-size:1.06rem; color:var(--accent); margin:1.5rem 0 .6rem; }
+  p { margin:.8rem 0; }
+  .hero { background:var(--soft); border-radius:12px; padding:.9rem 1.15rem; }
+  blockquote { margin:1.1rem 0; padding:.85rem 1.15rem; background:#f8fafc;
+               border-left:4px solid var(--accent); border-radius:0 12px 12px 0; color:#334155; }
+  blockquote p { margin:.3rem 0; }
+  ul, ol { margin:.8rem 0; padding-left:1.5rem; }
+  li { margin:.4rem 0; }
+  ul.tasks { list-style:none; padding-left:.2rem; }
+  .cb { display:inline-flex; align-items:center; justify-content:center;
+        width:.95em; height:.95em; border:2px solid var(--accent); border-radius:4px;
+        vertical-align:-.1em; margin-right:.35em; font-size:.95em; flex:none; }
+  .cb.on::after { content:"✓"; color:#fff; font-size:.72em; font-weight:800; }
+  .cb.on { background:var(--accent); }
+  code { background:#eef2f7; border-radius:6px; padding:.08em .38em; font-size:.88em;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre { margin:1rem 0; padding:1rem 1.25rem; border-radius:14px; overflow-x:auto; line-height:1.55;
+        font-size:.92rem; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  pre.prompt { background:#0f172a; color:#86efac; }
+  pre.mono { background:#f8fafc; border:1.5px solid #e2e8f0; color:#334155; }
+  .tblwrap { overflow-x:auto; margin:1.1rem 0; }
+  table { border-collapse:collapse; width:100%; font-size:.93rem; }
+  th { background:var(--soft); text-align:left; }
+  th, td { border:1px solid #e2e8f0; padding:.5rem .75rem; vertical-align:top; }
+  tbody tr:nth-child(even) td { background:#fafcfe; }
+  td code, th code { white-space:normal; }
+  .blank { display:inline-block; border-bottom:2px solid #94a3b8; height:1.05em; vertical-align:baseline; }
+  .writeline { border-bottom:2px solid #94a3b8; height:1.9em; margin:1rem .2rem; }
+  hr { border:none; border-top:2px dashed #e2e8f0; margin:1.9rem 0; }
+  a { color:var(--accent); }
+  footer { color:#64748b; font-size:.8rem; padding:2.2rem 3rem 2rem; }
+  @media (max-width:640px) {
+    .doc-head, .content, footer { padding-left:1.2rem; padding-right:1.2rem; }
+    .page { margin:0; border-radius:0; }
+  }
+  @media print {
+    body { background:#fff; font-size:12.5px; }
+    body.sheet { font-size:13.5px; }
+    .page { box-shadow:none; margin:0; max-width:none; border-radius:0; }
+    .doc-head { background:#fff; color:var(--accent); padding:0 0 .8rem;
+                border-bottom:4px solid var(--accent); }
+    .doc-head .kicker { opacity:.75; }
+    .content, footer { padding-left:0; padding-right:0; }
+    footer { padding-top:1.4rem; padding-bottom:0; }
+    pre.prompt { background:#fff; color:#0f172a; border:2px solid #94a3b8; }
+    .cb, th, blockquote, .hero { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    table, pre, blockquote, .hero, ul.tasks { break-inside:avoid; }
+    h2, h3 { break-after:avoid; }
+  }
+  @page { margin:13mm 14mm; }
+</style>
+</head>
+<body class="sheet">
+<main class="page">
+  <header class="doc-head">
+    <p class="kicker">Vibe Coding Camp · Day 3 Worksheet</p>
+    <h1>💡 Day 3 — My App Plan</h1>
+  </header>
+  <div class="content">
+<p class="hero"><strong>Mission: Turn YOUR idea into a plan — then build v0 (your first screen).</strong></p>
+<p>Name: <span class="blank" style="min-width:9.2em"></span></p>
+<blockquote><p>Big news: from today you build <strong>YOUR own app</strong> — and you present it on <strong>Friday</strong>! 🎉<br>The loop never changes: <strong>TELL</strong> (say it) → <strong>WATCH</strong> (AI builds) → <strong>CHECK</strong> (browser) → <strong>FIX</strong> (say the change)</p></blockquote>
+<hr>
+<h2>📏 Capstone rules (read me first!)</h2>
+<blockquote><p>- <strong>ONE file only: <code>index.html</code></strong> — that is the whole app<br>- <strong>No server, no login, no external API</strong><br>- Saving data <strong>in the browser</strong> (localStorage) is <strong>OK</strong> ✅<br>- Friday: <strong>2-minute demo</strong> in front of everyone 🎤</p></blockquote>
+<h2>🗂️ Themes — pick one (or your own idea, within the rules)</h2>
+<p><strong>Tip: pick something your family or friends could actually use.</strong></p>
+<div class="tblwrap"><table><thead><tr><th>Theme</th><th>Example MUST features</th></tr></thead><tbody><tr><td>🏞️ Hometown travel guide</td><td>list of places, photo + description, best route</td></tr><tr><td>🍜 Lao food menu</td><td>show menu + prices, filter by category, order total</td></tr><tr><td>🎭 Club / department page</td><td>intro section, member cards, how to join</td></tr><tr><td>🇱🇦 Laos quiz</td><td>show question, check answer, count score</td></tr><tr><td>💰 Pocket money tracker</td><td>add income/expense, show the list, show balance (saves in browser)</td></tr><tr><td>🃏 English–Lao flashcards</td><td>flip cards, see meaning, mark known words (saves in browser)</td></tr></tbody></table></div>
+<h2>Step 1 — Paper plan (15 min)</h2>
+<p>Paper first, AI later — know YOUR idea before you talk to AI.</p>
+<blockquote><p>A feature is ONE sentence: <strong>"User can <span class="blank" style="min-width:1.3em"></span>."</strong><br>❌ Too big: "User can do everything about food"<br>✅ Just right: "User can see 10 menu items with prices."</p></blockquote>
+<p>My app name: <span class="blank" style="min-width:15.1em"></span></p>
+<p>Who will use it? <span class="blank" style="min-width:15.1em"></span></p>
+<p><strong>MUST features — exactly 3 (my app needs these):</strong></p>
+<ol><li>User can <span class="blank" style="min-width:21.8em"></span></li></ol>
+<ol><li>User can <span class="blank" style="min-width:21.8em"></span></li></ol>
+<ol><li>User can <span class="blank" style="min-width:21.8em"></span></li></ol>
+<p><strong>NICE features — 2 (only if there is extra time):</strong></p>
+<ol><li><span class="blank" style="min-width:26.0em"></span></li></ol>
+<ol><li><span class="blank" style="min-width:26.0em"></span></li></ol>
+<p><strong>Sketch your screen (2 min — boxes and words are enough):</strong></p>
+<pre class="prompt">+-----------------------------------------------------------+
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
++-----------------------------------------------------------+</pre>
+<p><strong>✍️ Teacher approval — no sign, no build!</strong> (the teacher signs during Step 2)</p>
+<p>Teacher's signature: <span class="blank" style="min-width:9.2em"></span></p>
+<h2>Step 2 — Plan mode: talk first, build later (15 min)</h2>
+<ul class="tasks"><li><span class="cb"></span> Make a new folder on the Desktop. Name it: <code>my-app</code></li><li><span class="cb"></span> Open the terminal <strong>in that folder</strong> → type <code>opencode</code> and press Enter</li><li><span class="cb"></span> Press <strong>Tab</strong> → check the <strong>bottom-right corner</strong>: it says <strong>Plan</strong></li></ul>
+<blockquote><p>In <strong>Plan</strong> mode the AI <strong>talks</strong> with you — it does <strong>NOT</strong> build files.<br>Perfect for checking your plan.</p></blockquote>
+<p>Type this (copy your plan from Step 1):</p>
+<pre class="prompt">I want to build ___ (app name) for ___ (who).
+It is ONE file: index.html. No server, no login.
+MUST features:
+1. User can ___
+2. User can ___
+3. User can ___
+Is this a good plan for 2 days? What should I build first?</pre>
+<p><strong>AI's advice — what to build first, what to be careful about:</strong></p>
+<div class="writeline"></div>
+<div class="writeline"></div>
+<blockquote><p>⚠️ The AI loves to add MORE features. Golden Rule 3: <strong>You decide, AI builds.</strong><br>Keep MUST = 3. Extra ideas go to NICE.</p></blockquote>
+<ul class="tasks"><li><span class="cb"></span> Show your plan to the teacher → get the <strong>signature</strong> in Step 1</li></ul>
+<h2>Step 3 — Back to Build: make v0 (35 min)</h2>
+<ul class="tasks"><li><span class="cb"></span> <strong>Press Tab again!</strong> Bottom-right shows <strong>Build</strong> — now the AI builds files</li><li><span class="cb"></span> I have my teacher's signature (no? → call the teacher first)</li></ul>
+<p>v0 = title + layout + MUST feature 1 only. Type:</p>
+<pre class="prompt">Create index.html for my app &quot;___&quot; (app name).
+Layout: the app name as a big title at the top, and my name &quot;___&quot; under it.
+Now add ONLY MUST feature 1: User can ___.
+Do not add other features yet. Keep it simple.</pre>
+<ul class="tasks"><li><span class="cb"></span> <strong>CHECK</strong> — open <code>my-app/index.html</code> in the browser</li><li><span class="cb"></span> <strong>FIX</strong> 1–2 times if needed (<em>what I SEE + what I WANT</em>)</li></ul>
+<p><strong>A good v0 today = the title shows + feature 1 works. Ugly is OK — we make it pretty on Friday!</strong></p>
+<h3>💪 Stretch (if v0 already works)</h3>
+<ul class="tasks"><li><span class="cb"></span> Start MUST feature 2 — remember: ONE request at a time</li><li><span class="cb"></span> Ask the AI: <code>Which of my 3 MUST features is the hardest? Why? Answer simply.</code></li></ul>
+<hr>
+<h2>✅ Today's checkpoints</h2>
+<ul class="tasks"><li><span class="cb"></span> Teacher <strong>signed</strong> my plan</li><li><span class="cb"></span> My <strong>v0 opens in the browser</strong> (title + feature 1)</li><li><span class="cb"></span> I did my <strong>30-second pitch</strong></li></ul>
+<h2>🎤 30-second pitch (fill in — then stand up and say it!)</h2>
+<p>My app is <span class="blank" style="min-width:23.1em"></span>.</p>
+<p>It is for <span class="blank" style="min-width:23.1em"></span>.</p>
+<p>It can <span class="blank" style="min-width:7.1em"></span>, <span class="blank" style="min-width:7.1em"></span>, and <span class="blank" style="min-width:7.1em"></span>.</p>
+<h2>🎫 Exit ticket (before you leave)</h2>
+<p>Tomorrow is <strong>Build Day</strong>. The FIRST feature I will build in tomorrow's first sprint:</p>
+<div class="writeline"></div>
+<blockquote><p><strong>Tomorrow:</strong> Build Day — 2 hours, 3 features. You can do it! 💪</p></blockquote>
+  </div>
+  <footer>Vibe Coding Camp 2026 · Source: day3-worksheet.md</footer>
+</main>
+</body>
+</html>
